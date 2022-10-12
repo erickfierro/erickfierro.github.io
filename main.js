@@ -6,3 +6,5 @@ btnMenu.addEventListener('click', desplegarMenu);
 function desplegarMenu() {
     menuDesplegable.classList.toggle("active");
 }
+
+AOS.init();

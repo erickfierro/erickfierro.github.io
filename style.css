@@ -349,7 +349,7 @@ main {
 }
 
 .container-studies div:hover {
-    transform: scale(1.05, 1.05);
+    transform: scale(1.03, 1.03);
 }
 
 .container-studies > div > img {
@@ -430,7 +430,7 @@ main {
         transform: translate(0, -10%);
         width: 100%;
     }
-} */
+}
 
 /* Experience */
 
@@ -588,22 +588,47 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
 }
 
-.social-footer i {
-    font-size: 35px;
-    padding: 0 5px;
+.card-social {
+    width: 50px;
+    height: 50px;
+    background-color: #222326;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 8px;
+}
+
+.card-social a > i {
+    font-size: 22px;
+}
+
+.card-social a:hover{
+    color: var(--terciario);
 }
 
 .contacto {
     text-align: center;
     width: 100%;
-    align-items: center;
-    font-size: 15px;
 }
 
 .contacto p {
-    color: #787878;
-    margin: 10px 0 0 0;
+    color: var(--blanco);
+    font-size: 16px;
+    margin: 30px 0 0 0;
+}
+
+.contacto p:last-child {
+    color: #919496;
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .card-social {
+        margin: 0 5px;
+    }
 }

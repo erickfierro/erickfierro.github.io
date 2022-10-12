@@ -310,7 +310,7 @@ main {
     margin-bottom: 2rem;
 }
 
-/* Main - Studies-Section */
+/* Main / Studies-Section */
 
 .my-studies {
     text-align: center;
@@ -360,7 +360,7 @@ main {
     padding-top: 4rem;
     background-color: var(--primario);
     padding-bottom: 2rem;
-    width: 100%;
+    width: 100vw;
 }
 
 .featured h3 {

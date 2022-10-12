@@ -144,13 +144,6 @@ a {
     margin: 0 auto;
 }
 
-.header-homeleft {
-    background-image: url(../img/personalPhoto3.png);
-    background-size: auto 80%;
-    background-position: bottom right;
-    background-repeat: no-repeat;
-}
-
 .header-homeleft,
 .header-homeright {
     display: flex;
@@ -194,7 +187,6 @@ a {
 
 .image-socialmedia {
     display: flex;
-    gap: 1rem;
 }
 
 .image-socialmedia i {
@@ -357,7 +349,7 @@ main {
 }
 
 .container-studies div p {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
 }
 
 /* Skills */

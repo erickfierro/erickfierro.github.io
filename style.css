@@ -360,7 +360,7 @@ main {
     padding-top: 4rem;
     background-color: var(--primario);
     padding-bottom: 2rem;
-    width: 100vw;
+    width: 100%;
 }
 
 .featured h3 {

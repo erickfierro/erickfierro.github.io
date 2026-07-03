@@ -16,6 +16,31 @@ type GitHubRepo = {
   updatedAt: string
 }
 
+const REPO_ACRONYMS: Record<string, string> = {
+  cobol: "COBOL",
+  api: "API",
+  sql: "SQL",
+  db: "DB",
+  ui: "UI",
+  ux: "UX",
+  cli: "CLI",
+  css: "CSS",
+  html: "HTML",
+  js: "JS",
+  ts: "TS",
+  jcl: "JCL",
+  vsam: "VSAM",
+  cics: "CICS",
+  nextjs: "Next.js",
+}
+
+function formatRepoName(name: string): string {
+  return name
+    .split("-")
+    .map(w => REPO_ACRONYMS[w.toLowerCase()] ?? (w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(" ")
+}
+
 function formatRepoDate(iso: string): string {
   const d = new Date(iso)
   return d.toLocaleDateString("en-US", { month: "short", year: "numeric" })
@@ -271,7 +296,7 @@ function HomeContent() {
                         </div>
 
                         <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
-                          {repo.name}
+                          {formatRepoName(repo.name)}
                         </h3>
 
                         <p className="text-muted-foreground leading-relaxed">{repo.description}</p>

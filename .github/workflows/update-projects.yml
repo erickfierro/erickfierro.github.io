@@ -1,0 +1,83 @@
+name: Update Featured Projects
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch featured repos from GitHub API
+        run: |
+          curl -s "https://api.github.com/users/erickfierro/repos?per_page=100&sort=updated" \
+            -H "Accept: application/vnd.github+json" \
+            -o /tmp/repos.json
+
+          node -e "
+            const data = JSON.parse(require('fs').readFileSync('/tmp/repos.json', 'utf8'));
+            const featured = data
+              .filter(r => Array.isArray(r.topics) && r.topics.includes('featured'))
+              .map(r => ({
+                name: r.name,
+                description: r.description || '',
+                url: r.html_url,
+                language: r.language || '',
+                updatedAt: r.updated_at
+              }));
+            require('fs').writeFileSync('public/github-repos.json', JSON.stringify(featured, null, 2));
+            console.log('Featured repos found:', featured.length);
+            featured.forEach(r => console.log(' -', r.name));
+          "
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/github-repos.json
+          git diff --staged --quiet && echo "No changes" || (git commit -m "chore: update featured GitHub projects" && git push)
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          static_site_generator: next
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build with Next.js
+        run: pnpm next build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

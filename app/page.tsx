@@ -8,11 +8,32 @@ import { LanguageToggle } from "@/components/language-toggle"
 
 const THEME_STORAGE_KEY = "theme"
 
+type GitHubRepo = {
+  name: string
+  description: string
+  url: string
+  language: string
+  updatedAt: string
+}
+
+function formatRepoDate(iso: string): string {
+  const d = new Date(iso)
+  return d.toLocaleDateString("en-US", { month: "short", year: "numeric" })
+}
+
 function HomeContent() {
   const [isDark, setIsDark] = useState(true)
   const [activeSection, setActiveSection] = useState("")
+  const [githubRepos, setGithubRepos] = useState<GitHubRepo[]>([])
   const sectionsRef = useRef<(HTMLElement | null)[]>([])
   const { t } = useLanguage()
+
+  useEffect(() => {
+    fetch("/github-repos.json")
+      .then((r) => r.json())
+      .then((data: GitHubRepo[]) => { if (data.length > 0) setGithubRepos(data) })
+      .catch(() => {})
+  }, [])
 
   useEffect(() => {
     const stored = localStorage.getItem(THEME_STORAGE_KEY)
@@ -234,33 +255,61 @@ function HomeContent() {
             <h2 className="text-3xl sm:text-4xl font-light">{t.recentThoughts}</h2>
 
             <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
-              {t.projects.map((project, index) => (
-                <a
-                  key={index}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col h-full p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-                      <span>{project.date}</span>
-                      <span>{project.language}</span>
-                    </div>
+              {githubRepos.length > 0
+                ? githubRepos.map((repo, index) => (
+                    <a
+                      key={index}
+                      href={repo.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col h-full p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
+                    >
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
+                          <span>{formatRepoDate(repo.updatedAt)}</span>
+                          <span>{repo.language}</span>
+                        </div>
 
-                    <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
-                      {project.title}
-                    </h3>
+                        <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
+                          {repo.name}
+                        </h3>
 
-                    <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-                  </div>
+                        <p className="text-muted-foreground leading-relaxed">{repo.description}</p>
+                      </div>
 
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 mt-auto pt-4">
-                    <span>{t.readMore}</span>
-                    <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
-                </a>
-              ))}
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 mt-auto pt-4">
+                        <span>{t.readMore}</span>
+                        <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
+                    </a>
+                  ))
+                : t.projects.map((project, index) => (
+                    <a
+                      key={index}
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col h-full p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
+                    >
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
+                          <span>{project.date}</span>
+                          <span>{project.language}</span>
+                        </div>
+
+                        <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
+                          {project.title}
+                        </h3>
+
+                        <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                      </div>
+
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 mt-auto pt-4">
+                        <span>{t.readMore}</span>
+                        <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                      </div>
+                    </a>
+                  ))}
             </div>
           </div>
         </section>

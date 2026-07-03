@@ -135,4 +135,11 @@
       transform: translateY(0);
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up {
+      animation-duration: 0.01ms;
+      animation-iteration-count: 1;
+    }
+  }
 }

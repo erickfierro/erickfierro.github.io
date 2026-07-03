@@ -1,45 +1,84 @@
-# Minimalist Portfolio Website
+<div align="center">
 
-A clean, modern portfolio website built with Next.js and Tailwind CSS, featuring smooth animations and dark/light theme support.
+# Erick Fierro — Portfolio
 
-## ✨ Features
+Minimalist personal portfolio built with Next.js, TypeScript, and Tailwind CSS.
 
-- **Minimalist Design** - Clean typography with Geist font and strategic use of whitespace
-- **Responsive Layout** - Mobile-first design that works on all devices
-- **Theme Toggle** - Seamless dark/light mode switching
-- **Smooth Animations** - Subtle scroll-triggered animations and hover effects
-- **Modern Stack** - Built with Next.js 15, TypeScript, and Tailwind CSS
+[![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![pnpm](https://img.shields.io/badge/pnpm-package%20manager-F69220?logo=pnpm&logoColor=white)](https://pnpm.io/)
 
-## 🚀 Built With
+[Live Site](https://erickfierro.github.io) · [Report an Issue](https://github.com/erickfierro/erickfierro.github.io/issues)
 
-- [Next.js](https://nextjs.org/) - React framework
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [v0.dev](https://v0.dev/) - AI-powered development
+</div>
 
-## 📦 Getting Started
+---
+
+## Overview
+
+A clean, single-page portfolio showcasing experience, projects, and contact info. Statically exported and deployed on GitHub Pages.
+
+## Features
+
+- **Bilingual** — English/Spanish toggle with instant switching (`components/language-context.tsx`)
+- **Dark/Light Mode** — Persisted across visits via `localStorage`, no flash-of-wrong-theme
+- **Scroll Animations** — Sections fade in as they enter the viewport (`IntersectionObserver`)
+- **Responsive** — Mobile-first layout, tested down to small viewports
+- **SEO Ready** — Dynamic `robots.ts` and `sitemap.ts`, Open Graph and Twitter metadata
+- **Static Export** — Zero server runtime, ships as static HTML/CSS/JS
+
+## Tech Stack
+
+| Layer      | Choice                          |
+|------------|----------------------------------|
+| Framework  | Next.js 15 (App Router)          |
+| Language   | TypeScript                       |
+| Styling    | Tailwind CSS v4                  |
+| Icons      | lucide-react                     |
+| Fonts      | Geist                            |
+| Package manager | pnpm                        |
+
+## Getting Started
 
 ```bash
-# Clone the repository
-git clone https://github.com/felixmacaspac/v0-minimalist-portfolio.git
-
 # Install dependencies
-npm install
+pnpm install
 
-# Run development server
-npm run dev
+# Run the dev server
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
+Open [http://localhost:3000](http://localhost:3000) to view it locally.
 
-## 🎨 Customization
+```bash
+# Production build (static export to /out)
+pnpm build
 
-The portfolio is designed to be easily customizable:
+# Lint
+pnpm lint
+```
 
-- Update personal information in `app/page.tsx`
-- Modify colors and styling in `app/globals.css`
-- Add or remove sections as needed
+## Project Structure
 
-## 📄 License
+```
+app/
+  layout.tsx      Root layout, fonts, metadata
+  page.tsx        Main page (all sections)
+  robots.ts        SEO robots config
+  sitemap.ts       SEO sitemap config
+  globals.css      Theme tokens & Tailwind layers
+components/
+  language-context.tsx   i18n provider (EN/ES)
+  language-toggle.tsx    Language switcher UI
+lib/
+  i18n.ts          Translation strings
+```
 
-Open source and available under the [MIT License](LICENSE).
+## Deployment
+
+The site is built with `output: "export"` and deployed to GitHub Pages from the static output in `/out`.
+
+## License
+
+Personal project — content and code are not licensed for reuse.

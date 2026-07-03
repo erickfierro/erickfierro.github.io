@@ -9,7 +9,7 @@ export function LanguageToggle() {
     <div className="flex items-center gap-1 text-sm font-mono">
       <button
         onClick={() => setLocale("en")}
-        className={`px-2 py-1 transition-colors duration-300 ${
+        className={`px-3 py-2 transition-colors duration-300 ${
           locale === "en" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
         }`}
         aria-label="Switch to English"
@@ -19,7 +19,7 @@ export function LanguageToggle() {
       <span className="text-muted-foreground">/</span>
       <button
         onClick={() => setLocale("es")}
-        className={`px-2 py-1 transition-colors duration-300 ${
+        className={`px-3 py-2 transition-colors duration-300 ${
           locale === "es" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
         }`}
         aria-label="Cambiar a español"

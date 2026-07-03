@@ -9,10 +9,30 @@ const geist = Geist({
   variable: "--font-geist",
 })
 
+const title = "Erick Fierro - Mainframe & COBOL Developer"
+const description =
+  "COBOL developer with experience maintaining and optimizing mission-critical systems. Mainframe specialist focused on legacy process modernization."
+
 export const metadata: Metadata = {
-  title: "Erick Fierro - Mainframe & COBOL Developer",
-  description: "Desarrollador COBOL con 3 años de experiencia en el mantenimiento y optimización de sistemas críticos. Especialista en Mainframe y modernización de procesos legacy.",
+  metadataBase: new URL("https://erickfierro.github.io"),
+  title,
+  description,
+  keywords: ["COBOL", "Mainframe", "z/OS", "JCL", "CICS", "VSAM", "DB2", "Software Developer"],
+  authors: [{ name: "Erick Fierro" }],
   generator: "v0.app",
+  openGraph: {
+    title,
+    description,
+    url: "https://erickfierro.github.io",
+    siteName: "Erick Fierro",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+  },
 }
 
 export default function RootLayout({
@@ -22,7 +42,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <noscript>
+          <style>{`.opacity-0 { opacity: 1 !important; }`}</style>
+        </noscript>
+        {children}
+      </body>
     </html>
   )
 }

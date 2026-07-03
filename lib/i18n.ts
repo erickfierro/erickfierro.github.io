@@ -3,13 +3,13 @@ export type Locale = "en" | "es"
 export const translations = {
   en: {
     // Header
-    portfolioYear: "PORTFOLIO / 2025",
+    portfolioYear: "PORTFOLIO / 2026",
     availableForWork: "Available for work",
     location: "Colombia",
     currently: "CURRENTLY",
     position: "COBOL Developer",
-    company: "@ Banco de Bogota",
-    years: "2024 — Present",
+    company: "@ Nuek",
+    years: "2026 — Present",
     focus: "FOCUS",
 
     // Hero description
@@ -17,8 +17,15 @@ export const translations = {
 
     // Work section
     selectedWork: "Professional Experience",
-    workYears: "2022 — 2025",
+    workYears: "2022 — 2026",
     jobs: [
+      {
+        year: "2026",
+        role: "COBOL Developer",
+        company: "Nuek",
+        description: "Development of COBOL applications (Online and Batch). Efficient management of large data volumes using VSAM files and process automation via JCL in an IBM environment.",
+        stack: ["COBOL", "VSAM", "Mainframe", "SQL"]
+      },
       {
         year: "2024",
         role: "COBOL Developer",
@@ -70,13 +77,13 @@ export const translations = {
   },
   es: {
     // Header
-    portfolioYear: "PORTAFOLIO / 2025",
+    portfolioYear: "PORTAFOLIO / 2026",
     availableForWork: "Disponible para trabajar",
     location: "Colombia",
     currently: "ACTUALMENTE",
     position: "Desarrollador COBOL",
-    company: "@ Banco de Bogotá",
-    years: "2024 — Presente",
+    company: "@ Nuek",
+    years: "2026 — Presente",
     focus: "ENFOQUE",
 
     // Hero description
@@ -84,8 +91,15 @@ export const translations = {
 
     // Work section
     selectedWork: "Experiencia Profesional",
-    workYears: "2022 — 2025",
+    workYears: "2022 — 2026",
     jobs: [
+      {
+        year: "2026",
+        role: "COBOL Developer",
+        company: "Nuek",
+        description: "Desarrollo de aplicaciones COBOL (Online y Batch). Gestión eficiente de grandes volúmenes de datos con archivos VSAM y automatización de procesos mediante JCL en entorno IBM.",
+        stack: ["COBOL", "VSAM", "Mainframe", "SQL"]
+      },
       {
         year: "2024",
         role: "COBOL Developer",

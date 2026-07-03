@@ -211,7 +211,7 @@ function HomeContent() {
                     {job.stack?.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 text-xs text-muted-foreground rounded group-hover:border-muted-foreground/50 transition-colors duration-500"
+                        className="px-2.5 py-1 text-xs text-muted-foreground bg-muted/50 rounded-md hover:bg-muted hover:text-foreground transition-colors duration-300"
                       >
                         {tech}
                       </span>

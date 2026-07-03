@@ -207,7 +207,7 @@ function HomeContent() {
                     <p className="text-muted-foreground leading-relaxed max-w-lg">{job.description}</p>
                   </div>
 
-                  <div className="md:col-span-4 flex flex-wrap gap-2 md:justify-end mt-2 md:mt-0">
+                  <div className="md:col-span-4 flex flex-wrap content-start gap-2 md:justify-end mt-2 md:mt-0 self-start">
                     {job.stack?.map((tech) => (
                       <span
                         key={tech}

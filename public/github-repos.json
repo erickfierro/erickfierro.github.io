@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "name": "cobol-sales-statistics-calculator",
+    "description": "This project is a sales statistics calculator developed in COBOL",
+    "url": "https://github.com/erickfierro/cobol-sales-statistics-calculator",
+    "language": "COBOL",
+    "updatedAt": "2026-07-03T04:48:28Z"
+  }
+]

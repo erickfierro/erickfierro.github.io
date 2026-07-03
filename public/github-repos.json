@@ -1,10 +1,31 @@
 [
   {
+    "name": "Pokedex",
+    "description": "Pokedex is a website where you can see the different pokemons according to their type",
+    "url": "https://github.com/erickfierro/Pokedex",
+    "language": "CSS",
+    "updatedAt": "2026-07-03T05:09:29Z"
+  },
+  {
+    "name": "reportal",
+    "description": "Reportal is a project for inventory reporting and management written in COBOL language",
+    "url": "https://github.com/erickfierro/reportal",
+    "language": "COBOL",
+    "updatedAt": "2026-07-03T05:09:11Z"
+  },
+  {
+    "name": "java-cobol-banking-system",
+    "description": "Hybrid COBOL & Java Banking System",
+    "url": "https://github.com/erickfierro/java-cobol-banking-system",
+    "language": "",
+    "updatedAt": "2026-07-03T05:08:42Z"
+  },
+  {
     "name": "erickfierro.github.io",
     "description": "",
     "url": "https://github.com/erickfierro/erickfierro.github.io",
     "language": "TypeScript",
-    "updatedAt": "2026-07-03T05:05:03Z"
+    "updatedAt": "2026-07-03T05:05:27Z"
   },
   {
     "name": "cobol-sales-statistics-calculator",

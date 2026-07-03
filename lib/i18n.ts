@@ -31,7 +31,7 @@ export const translations = {
         role: "COBOL Developer",
         company: "Banco de Bogotá",
         description: "Development of COBOL applications (Online and Batch). Efficient management of large data volumes using VSAM files and process automation via JCL in an IBM environment.",
-        stack: ["COBOL", "JCL", "CICS", "VSAM", "Mainframe"]
+        stack: ["COBOL", "JCL", "CICS", "VSAM", "Mainframe", "Control-M"]
       },
       {
         year: "2022",
@@ -105,7 +105,7 @@ export const translations = {
         role: "COBOL Developer",
         company: "Banco de Bogotá",
         description: "Desarrollo de aplicaciones COBOL (Online y Batch). Gestión eficiente de grandes volúmenes de datos con archivos VSAM y automatización de procesos mediante JCL en entorno IBM.",
-        stack: ["COBOL", "JCL", "CICS", "VSAM", "Mainframe"]
+        stack: ["COBOL", "JCL", "CICS", "VSAM", "Mainframe", "Control-M"]
       },
       {
         year: "2022",

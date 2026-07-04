@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Github } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { LanguageProvider, useLanguage } from "@/components/language-context"
 import { LanguageToggle } from "@/components/language-toggle"
@@ -233,7 +233,7 @@ function HomeContent() {
               <div className="text-sm text-muted-foreground font-mono">{t.workYears}</div>
             </div>
 
-            <div className="space-y-8 sm:space-y-12">
+            <div>
               {t.jobs.map((job, index) => (
                 <div
                   key={index}
@@ -245,23 +245,22 @@ function HomeContent() {
                     </div>
                   </div>
 
-                  <div className="md:col-span-6 space-y-3">
+                  <div className="md:col-span-10 space-y-3">
                     <div>
                       <h3 className="text-lg sm:text-xl font-medium">{job.role}</h3>
                       <div className="text-muted-foreground">{job.company}</div>
                     </div>
                     <p className="text-muted-foreground leading-relaxed max-w-lg">{job.description}</p>
-                  </div>
-
-                  <div className="md:col-span-4 flex flex-wrap content-start gap-2 md:justify-end mt-2 md:mt-0 self-start">
-                    {job.stack?.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-1 text-xs text-muted-foreground bg-muted/50 rounded-md hover:bg-muted hover:text-foreground transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {job.stack?.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 text-xs text-muted-foreground border border-border rounded-full hover:border-muted-foreground/50 hover:text-foreground transition-colors duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -279,62 +278,58 @@ function HomeContent() {
           <div className="space-y-12 sm:space-y-16">
             <h2 className="text-3xl sm:text-4xl font-light">{t.recentThoughts}</h2>
 
-            <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
-              {githubRepos.length > 0
-                ? githubRepos.map((repo, index) => (
-                    <a
-                      key={index}
-                      href={repo.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex flex-col h-full p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
-                    >
-                      <div className="space-y-4">
-                        <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-                          <span>{formatRepoDate(repo.updatedAt)}</span>
-                          <span>{repo.language}</span>
-                        </div>
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-2 auto-rows-fr">
+              {(githubRepos.length > 0
+                ? githubRepos.map((repo) => ({
+                    key: repo.url,
+                    url: repo.url,
+                    date: formatRepoDate(repo.updatedAt),
+                    language: repo.language,
+                    title: formatRepoName(repo.name),
+                    description: repo.description,
+                  }))
+                : t.projects.map((project) => ({
+                    key: project.url,
+                    url: project.url,
+                    date: project.date,
+                    language: project.language,
+                    title: project.title,
+                    description: project.description,
+                  }))
+              ).map((project) => (
+                <a
+                  key={project.key}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col h-full p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground">
+                      <span className="font-mono">{project.date}</span>
+                      {project.language && (
+                        <span className="px-3 py-1 border border-border rounded-full group-hover:border-muted-foreground/50 transition-colors duration-300">
+                          {project.language}
+                        </span>
+                      )}
+                    </div>
 
-                        <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
-                          {formatRepoName(repo.name)}
-                        </h3>
+                    <h3 className="text-lg sm:text-xl font-medium leading-[1.75rem] line-clamp-2 group-hover:text-muted-foreground transition-colors duration-300">
+                      {project.title}
+                    </h3>
 
-                        <p className="text-muted-foreground leading-relaxed">{repo.description}</p>
-                      </div>
+                    <div className="relative h-[7.8rem] overflow-hidden">
+                      <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                      <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-background to-transparent" />
+                    </div>
+                  </div>
 
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 mt-auto pt-4">
-                        <span>{t.readMore}</span>
-                        <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
-                      </div>
-                    </a>
-                  ))
-                : t.projects.map((project, index) => (
-                    <a
-                      key={index}
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex flex-col h-full p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
-                    >
-                      <div className="space-y-4">
-                        <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-                          <span>{project.date}</span>
-                          <span>{project.language}</span>
-                        </div>
-
-                        <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
-                          {project.title}
-                        </h3>
-
-                        <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-                      </div>
-
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 mt-auto pt-4">
-                        <span>{t.readMore}</span>
-                        <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
-                      </div>
-                    </a>
-                  ))}
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300 mt-auto pt-4">
+                    <span>{t.readMore}</span>
+                    <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -392,9 +387,20 @@ function HomeContent() {
         </section>
 
         <footer className="py-12 sm:py-16 border-t border-border">
-          <div className="space-y-2">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div className="text-sm text-muted-foreground">{t.copyright}</div>
-            <div className="text-xs text-muted-foreground">{t.builtWith}</div>
+            <div className="flex items-center gap-3 text-xs text-muted-foreground">
+              <span>{t.builtWith}</span>
+              <Link
+                href="https://github.com/erickfierro/erickfierro.github.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 py-2 -my-2 hover:text-foreground transition-colors duration-300"
+              >
+                <span>{t.viewSource}</span>
+                <Github className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
         </footer>
       </main>

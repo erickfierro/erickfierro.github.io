@@ -69,8 +69,9 @@ export const translations = {
     elsewhere: "ELSEWHERE",
 
     // Footer
-    copyright: "© 2025 Erick Fierro. All rights reserved.",
+    copyright: "© 2026 Erick Fierro. All rights reserved.",
     builtWith: "Built with Next.js & Tailwind CSS",
+    viewSource: "View source",
 
     // Navigation
     navigateTo: "Navigate to",
@@ -143,8 +144,9 @@ export const translations = {
     elsewhere: "EN OTROS LUGARES",
 
     // Footer
-    copyright: "© 2025 Erick Fierro. Todos los derechos reservados.",
+    copyright: "© 2026 Erick Fierro. Todos los derechos reservados.",
     builtWith: "Construido con Next.js & Tailwind CSS",
+    viewSource: "Ver código fuente",
 
     // Navigation
     navigateTo: "Navegar a",

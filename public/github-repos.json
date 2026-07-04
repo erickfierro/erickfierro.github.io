@@ -1,10 +1,17 @@
 [
   {
+    "name": "java-cobol-banking-system",
+    "description": "A hybrid banking system simulation integrating legacy COBOL programs with a modern Java (Spring Boot) backend and a Tailwind CSS frontend. It handles authentication and transactions using relational databases instead of flat files, all orchestrated with Docker",
+    "url": "https://github.com/erickfierro/java-cobol-banking-system",
+    "language": "",
+    "updatedAt": "2026-07-04T05:28:32Z"
+  },
+  {
     "name": "erickfierro.github.io",
     "description": "A responsive, multilingual developer portfolio application built with Next.js (App Router), TypeScript, and Tailwind CSS. It includes built-in internationalization handling, a robust theme provider for dark/light mode toggling",
     "url": "https://github.com/erickfierro/erickfierro.github.io",
     "language": "TypeScript",
-    "updatedAt": "2026-07-04T05:12:37Z"
+    "updatedAt": "2026-07-04T05:15:10Z"
   },
   {
     "name": "cobol-sales-statistics-calculator",
@@ -26,12 +33,5 @@
     "url": "https://github.com/erickfierro/Pokedex",
     "language": "CSS",
     "updatedAt": "2026-07-04T05:07:48Z"
-  },
-  {
-    "name": "java-cobol-banking-system",
-    "description": "Hybrid COBOL & Java Banking System",
-    "url": "https://github.com/erickfierro/java-cobol-banking-system",
-    "language": "",
-    "updatedAt": "2026-07-03T05:08:42Z"
   }
 ]

@@ -1,17 +1,31 @@
 [
   {
-    "name": "Pokedex",
-    "description": "Pokedex is a website where you can see the different pokemons according to their type",
-    "url": "https://github.com/erickfierro/Pokedex",
-    "language": "CSS",
-    "updatedAt": "2026-07-03T05:09:29Z"
+    "name": "erickfierro.github.io",
+    "description": "A responsive, multilingual developer portfolio application built with Next.js (App Router), TypeScript, and Tailwind CSS. It includes built-in internationalization handling, a robust theme provider for dark/light mode toggling",
+    "url": "https://github.com/erickfierro/erickfierro.github.io",
+    "language": "TypeScript",
+    "updatedAt": "2026-07-04T05:12:37Z"
+  },
+  {
+    "name": "cobol-sales-statistics-calculator",
+    "description": "A hybrid Python and COBOL data pipeline that extracts sales entries from spreadsheets and calculates business metrics using a core batch processor",
+    "url": "https://github.com/erickfierro/cobol-sales-statistics-calculator",
+    "language": "COBOL",
+    "updatedAt": "2026-07-04T05:11:09Z"
   },
   {
     "name": "reportal",
-    "description": "Reportal is a project for inventory reporting and management written in COBOL language",
+    "description": "A core backend application written in COBOL designed for automated report generation and batch data processing. The repository features a clean structure optimized for compiling local executable binaries",
     "url": "https://github.com/erickfierro/reportal",
     "language": "COBOL",
-    "updatedAt": "2026-07-03T05:09:11Z"
+    "updatedAt": "2026-07-04T05:10:00Z"
+  },
+  {
+    "name": "Pokedex",
+    "description": "An interactive and responsive Pokédex built with HTML, CSS, and Vanilla JavaScript using the PokéAPI. It allows users to explore Pokémon, filter them dynamically by type, and view their essential characteristics",
+    "url": "https://github.com/erickfierro/Pokedex",
+    "language": "CSS",
+    "updatedAt": "2026-07-04T05:07:48Z"
   },
   {
     "name": "java-cobol-banking-system",
@@ -19,19 +33,5 @@
     "url": "https://github.com/erickfierro/java-cobol-banking-system",
     "language": "",
     "updatedAt": "2026-07-03T05:08:42Z"
-  },
-  {
-    "name": "erickfierro.github.io",
-    "description": "",
-    "url": "https://github.com/erickfierro/erickfierro.github.io",
-    "language": "TypeScript",
-    "updatedAt": "2026-07-03T05:05:27Z"
-  },
-  {
-    "name": "cobol-sales-statistics-calculator",
-    "description": "This project is a sales statistics calculator developed in COBOL",
-    "url": "https://github.com/erickfierro/cobol-sales-statistics-calculator",
-    "language": "COBOL",
-    "updatedAt": "2026-07-03T04:53:38Z"
   }
 ]
